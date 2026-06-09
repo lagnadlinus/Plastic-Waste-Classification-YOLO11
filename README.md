@@ -32,17 +32,47 @@ By default, the notebook is configured with `RETRAIN_MODE = False` to bypass ful
    cd Plastic-Waste-Classification-YOLO11
 
 2. Open WaDaBa_Plastic_Classification_YOLO.ipynb in Google Colab or your local Jupyter environment.
-3. Run evaluation cells to inspect metrics, inference validation tables, and prediction states immediately
+3. Run evaluation cells to inspect metrics, inference validation tables, and prediction states immediately.
 
 Option 2: Full Reproduction (Data Acquisition Required)
-
 To retrain the networks from scratch, you must satisfy the official dataset tracking requirements:
+
 1. Request Data: Obtain the formal archive credentials directly from the WaDaBa Database Home Portal.
 2. Local Assembly: Compile and compress the target assets into an archive matching the signature 04_yolo_cls_dataset.zip.
 3. Execute Pipeline: Toggle the internal flags inside the notebook to rebuild properties:
 
+```bash
 RETRAIN_MODE = True
 AUTO_TRAIN_IF_MISSING = True
+
+⚙️ Tech Stack & Pipeline Infrastructure
+Layer	Component / Tool	Functional Purpose
+Core Framework	Python 3.10 / Google Colab T4 GPU	Accelerated Deep Learning Compute Environment
+Model Engine	Ultralytics YOLO11 (Nano & Small variants)	Feature Extraction & Image Classification
+Inference Interface	Gradio Engine	Prototype GUI for Real-world Simulation Testing
+Production Hub	Hugging Face Spaces	Cloud Interface Hosting for External Auditing
+
+Pipeline Architecture Flow
+```bash
+[Raw WaDaBa Archive Input] 
+           │
+           ▼
+[Custom Metadata Parsing Script] ──► Extracts: [Material ID] [Deformation Level] [Lighting]
+           │
+           ▼
+[YOLO Structured Class Splits] ───► Balanced Tree Partition: Train (70%) / Val (20%) / Test (10%)
+           │
+           ├──► Baseline Deployment ──► [YOLO11n-cls (10 Epochs)] ──► 99.1% Top-1 Accuracy
+           └──► Production Scaling  ──► [YOLO11s-cls (20 Epochs)] ──► 99.5% Top-1 Accuracy
+                                                   │
+                                                   ▼
+                                      [Hugging Face Gradio Cloud Space]
+
+📈 Performance Engineering Matrix
+The system maps classification capabilities across two unique model depths. Training details emphasize convergence optimization across extended epochs:
+Evaluation Architecture	Training Lifespan	Total Feature Weights	Top-1 Accuracy	Top-5 Accuracy	Target Cross-Entropy Loss
+YOLO11n-cls Baseline	10 Epochs	1.53M	99.1%	100.0%	0.1404
+YOLO11s-cls Production	20 Epochs	5.44M	99.5%
 
 Congratulations on finishing your assignment and getting good marks! It is a fantastic project to showcase to potential employers, as it demonstrates end-to-end machine learning skills, handling real-world data issues (imbalance), and building an interactive prototype (Gradio/Hugging Face).
 Navigating the WaDaBa terms of use while publishing your work on GitHub requires addressing a few critical constraints, along with a step-by-step guide to putting this together cleanly and professionally.
@@ -123,3 +153,4 @@ If you use this work or the underlying data, please cite the original authors:
 Can other people contribute to making it better?
 Yes! By hosting your code publicly, other developers can duplicate your repository, request access to the WaDaBa dataset themselves, and try different architectures (like YOLO11m or ViTs) or implement data augmentation to solve the class imbalance problem you noted.
 By detailing the dataset limitations (missing PVC and PE-LD classes) in your README, you invite open-source collaboration while respecting academic licensing rules flawlessly. Ready to push this live? Let me know if you need help adjusting the Hugging Face configuration files or organizing the repo further.
+
