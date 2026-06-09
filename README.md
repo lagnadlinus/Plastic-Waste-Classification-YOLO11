@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ♻️ Automated Multi-Class Plastic Waste Classification System
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -30,3 +31,6 @@ By default, the notebook is configured with `RETRAIN_MODE = False` to bypass ful
    ```bash
    git clone [https://github.com/lagnadlinus/Plastic-Waste-Classification-YOLO11.git](https://github.com/lagnadlinus/Plastic-Waste-Classification-YOLO11.git)
    cd Plastic-Waste-Classification-YOLO11
+=======
+# Plastic-Waste-Classification-YOLO11
+>>>>>>> 4477dc3f1ce6b4b89fe3e4a3ac40efeca498ecce
