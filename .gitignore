@@ -1,0 +1,5 @@
+# Ignore raw data folders
+04_yolo_cls_dataset/
+*.zip
+*.tar.gz
+.DS_Store
